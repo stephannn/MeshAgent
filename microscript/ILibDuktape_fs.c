@@ -23,7 +23,6 @@ limitations under the License.
 #include <wchar.h>
 #include <io.h>
 #include <fcntl.h>
-#include <share.h>
 #define WIN_FAKE_O_NONBLOCK 128
 #endif
 
@@ -316,7 +315,6 @@ int ILibDuktape_fs_openSyncEx(duk_context *ctx, char *path, char *flags, char *m
 
 	sprintf_s(ILibScratchPad, sizeof(ILibScratchPad), "%d", retVal);
 #ifdef WIN32
-	//_wfopen_s(&f, (const wchar_t*)ILibDuktape_String_UTF8ToWide(ctx, path), (const wchar_t*)ILibDuktape_String_UTF8ToWide(ctx, flags));
 	f = _wfsopen((const wchar_t*)ILibDuktape_String_UTF8ToWide(ctx, path), (const wchar_t*)ILibDuktape_String_UTF8ToWide(ctx, flags), _SH_DENYNO);
 #else
 	f = fopen(path, flags);
