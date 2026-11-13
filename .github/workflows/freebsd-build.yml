@@ -1,19 +1,9 @@
 name: FreeBSD Build
 run-name: Build FreeBSD versions of MeshAgent
+
 on:
-  push:
-    branches: ['**']
-  pull_request:
   workflow_dispatch:
-    inputs:
-      freebsd_release:
-        description: FreeBSD release to build against, empty means FREEBSD_DEFAULT_REL
-        type: string
-  workflow_call:
-    inputs:
-      freebsd_release:
-        description: FreeBSD release to build against, empty means FREEBSD_DEFAULT_REL
-        type: string
+  
 permissions:
   contents: read
 env:

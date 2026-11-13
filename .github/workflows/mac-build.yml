@@ -1,10 +1,9 @@
 name: macOS Build
 run-name: Build MacOS versions of MeshAgent
+
 on:
-  push:
-    branches: ['**']
-  pull_request:
-  workflow_call:
+  workflow_dispatch:
+  
 permissions:
   contents: read
 
